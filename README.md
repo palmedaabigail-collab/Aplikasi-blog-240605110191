@@ -3,8 +3,8 @@
 Tugas UAS Pemrograman Web - Sistem Manajemen Blog menggunakan Laravel dan database `db_blog`.
 
 ## Identitas Mahasiswa
-- **Nama**: [Isi Nama Anda]
-- **NIM**: [Isi NIM Anda]
+- **Nama**: [Palmeda Abigail Yunta Paris]
+- **NIM**: [240605110191]
 
 ## Deskripsi Aplikasi
 Aplikasi ini adalah Sistem Manajemen Blog (CMS) yang dikembangkan dengan framework Laravel 11. Aplikasi terdiri dari dua area utama:

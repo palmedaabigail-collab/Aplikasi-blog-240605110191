@@ -9,9 +9,13 @@ class PengunjungController extends Controller
 {
     public function index()
     {
+        $search = request('search');
         $artikel = Artikel::with(['penulis', 'kategori'])
+            ->when($search, function($query) use ($search) {
+                return $query->where('judul', 'like', '%' . $search . '%')
+                             ->orWhere('isi', 'like', '%' . $search . '%');
+            })
             ->orderBy('hari_tanggal', 'desc')
-            ->take(5)
             ->get();
 
         $kategori = KategoriArtikel::all();

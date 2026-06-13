@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --primary-gradient: linear-gradient(135deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%);
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-primary: #0f172a;
             --text-secondary: #475569;
-            --accent-color: #818cf8;
+            --accent-color: #fbbf24;
+            --slate-dark: #0f172a;
+            --slate-medium: #1e293b;
         }
 
         body {
@@ -34,35 +36,45 @@
 
         /* Premium Navbar */
         .navbar {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            border-bottom: 2px solid rgba(217, 119, 6, 0.2);
             transition: all 0.3s ease;
         }
 
         .navbar-brand {
             font-weight: 800;
             font-size: 1.5rem;
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
         }
 
-        /* Hover effect on brand */
         .navbar-brand:hover {
             opacity: 0.9;
         }
 
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #fbbf24 !important;
+        }
+
         /* Hero Header */
         .hero-section {
-            background: var(--primary-gradient);
-            padding: 80px 0;
+            background: radial-gradient(circle at top right, rgba(217, 119, 6, 0.15) 0%, rgba(15, 23, 42, 0) 60%), linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 90px 0;
             color: white;
             position: relative;
             overflow: hidden;
             margin-bottom: 40px;
+            border-bottom: 1px solid rgba(217, 119, 6, 0.1);
         }
 
         .hero-section::before {
@@ -72,23 +84,24 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, rgba(255,255,255,0) 70%);
             border-radius: 50%;
         }
 
         /* Cards styling */
         .card {
             background: var(--card-bg);
-            border: none;
+            border: 1px solid rgba(15, 23, 42, 0.05);
             border-radius: 20px;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             overflow: hidden;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 40px -15px rgba(217, 119, 6, 0.12);
+            border-color: rgba(217, 119, 6, 0.25);
         }
 
         .card-img-top-container {
@@ -114,7 +127,8 @@
             background: white;
             border-radius: 20px;
             padding: 28px;
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04);
+            border: 1px solid rgba(15, 23, 42, 0.03);
         }
 
         .sidebar-title {
@@ -150,7 +164,8 @@
 
         .category-item:hover, .category-item.active {
             background: var(--primary-gradient);
-            color: white !important;
+            color: #0f172a !important;
+            font-weight: 600;
             transform: translateX(4px);
         }
 
@@ -186,7 +201,7 @@
         }
 
         .related-item a:hover {
-            color: #4f46e5;
+            color: #d97706;
         }
 
         .related-date {
@@ -198,18 +213,20 @@
         /* Button styling */
         .btn-primary {
             background: var(--primary-gradient);
+            color: #0f172a !important;
             border: none;
             border-radius: 12px;
             padding: 10px 24px;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.2);
             transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
-            background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+            box-shadow: 0 6px 14px rgba(217, 119, 6, 0.35);
+            background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+            color: #ffffff !important;
         }
 
         .btn-secondary {
@@ -242,14 +259,14 @@
         }
 
         .footer a:hover {
-            color: white;
+            color: #fbbf24;
         }
     </style>
 </head>
 <body>
 
     <!-- Premium Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <i class="fa-solid fa-feather-pointed me-2"></i>InspirasiBlog
@@ -260,11 +277,11 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-semibold text-dark px-3" href="{{ route('home') }}">Beranda</a>
+                        <a class="nav-link fw-semibold px-3" href="{{ route('home') }}">Beranda</a>
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-dark btn-sm rounded-pill px-3 fw-semibold">
+                    <a href="{{ route('admin.dashboard') }}" class="btn btn-outline-warning btn-sm rounded-pill px-3 fw-semibold">
                         <i class="fa-solid fa-lock me-1"></i> Admin Panel
                     </a>
                 </div>
@@ -285,7 +302,9 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <h5 class="text-white fw-bold"><i class="fa-solid fa-feather-pointed me-2"></i>InspirasiBlog</h5>
+                    <h5 class="fw-bold" style="background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">
+                        <i class="fa-solid fa-feather-pointed me-2"></i>InspirasiBlog
+                    </h5>
                     <p class="small mb-0">Platform publikasi tulisan, opini, berita, dan pengetahuan terkini.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
